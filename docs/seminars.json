@@ -1,0 +1,45 @@
+[
+    {
+        "photo": "img/seminars/south_africa01.jpg",
+        "location": "Pretoria, South Africa",
+        "date": "October 2010",
+        "caption": "University researchers from Botswana, Ethiopia, Kenya, Malawi, Rwanda, South Africa, Tanzania, Uganda, Zambia and Zimbabwe",
+        "latLong": "-25.7585826,28.0575225"
+    },
+    {
+        "photo": "img/seminars/jordan02.jpg",
+        "location": "Amman, Jordan",
+        "date": "December 2011",
+        "caption": "National Aid Fund, Ministry of Planning and International Cooperation, Department of Statistics",
+        "latLong": "31.8354518,35.6667589"
+    },
+    {
+        "photo": "img/seminars/vanuatu01.jpg",
+        "location": "Port Vila, Vanuatu",
+        "date": "March 2013",
+        "caption": "National Statistical Office",
+        "latLong": "-17.7369402,168.2872284"
+    },
+    {
+        "photo": "img/seminars/solomon_islands01.jpg",
+        "location": "Honiara, Solomon Islands",
+        "date": "March 2013",
+        "caption": "National Statistical Office, Central Bank",
+        "latLong": "-9.4343202,159.9381847"
+    },
+    {
+        "photo": "img/seminars/bishkek.jpg",
+        "location": "Bishkek, Kyrgyzstan",
+        "date": "December 2011",
+        "caption": "Statistics Commitee, Institute of statistical research, Ministry of Social Protection, Ministry of Economics, Ministry of Education",
+        "latLong": "42.8768536,74.5216496"
+    },
+    {
+        "photo": "img/seminars/india01.jpg",
+        "location": "Indore, India",
+        "date": "March 2014",
+        "caption": "IIM Indore",
+        "latLong": "22.627153,75.7879941"
+    }
+
+]

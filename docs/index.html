@@ -1,6 +1,1072 @@
+﻿ <!DOCTYPE html>
 <html>
-  <h1>Hello World!</h1>
+    <head>
+    <style>
+      pre.white {
+          display: block;
+          font-family: monospace;
+          white-space: pre;
+          margin-left: 30px;
+          color:maroon;
+          background-color: #FFFFFF;
+      }
+
+ <!-- pre {
+          display: block;
+          font-family: monospace;
+          white-space: pre;
+          margin: 1em 0;
+          color:maroon;
+          background-color: #DDDDDD;
+      } -->
+      
+      li{
+        margin: 12px 0;
+      }
+      .nav-tabs{
+        display:inline-flex;
+		background-color:maroon;
+      }
+      .nav-tabs li{
+        margin-right: 10px;
+        list-style-type:none;
+      }
+      p {
+        max-width: 800px;
+        text-align: justify;
+        margin-left: 30px;
+      }
+	  .ui-page .ui-header {
+    background: #0066bb !important;
+}
+    </style>
+
+    <title>ADePT</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta property="og:image" content="route.png" />
+        <link rel="stylesheet" href="lib/leaflet/leaflet.css" />
+        <link rel="stylesheet" href="lib/cluster/MarkerCluster.css" />
+        <link rel="stylesheet" href="lib/leaflet-photo/Leaflet.Photo.css" />
+        <link rel="stylesheet" href="css/map.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+    <script src="https://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+    <script>
+        var prevSelection = "tab1";
+        $("#navbar ul li").live("click",function(){
+            var newSelection = $(this).children("a").attr("data-tab-class");
+            $("."+prevSelection).addClass("ui-screen-hidden");
+            $("."+newSelection).removeClass("ui-screen-hidden");
+            prevSelection = newSelection;
+        });
+    </script>
+    <script src="https://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+
+    <style>
+        .tab-content{
+            width:100%;
+            height:100%;
+            background-color:white;
+            border-bottom-left-radius:0.5em;
+            border-bottom-right-radius:0.5em;
+        }
+        .tab-content>div{
+            padding:15px;
+        }
+    </style>
+
+    </head>
+
+
+
+    <body>
+        <div data-role="page">
+
+        <div data-role="header">
+        <h1 style="text-align:left; margin-left:10px;">
+            <TABLE><TR><TD>
+            <IMG src="img/adept_logo.png"><TD width=30> <TD>
+            free software platform for automated economic analysis
+            </TABLE>
+        </h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            <div data-role="navbar" id="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active" data-tab-class="tab1">Main</a></li>
+                    <li><a href="#" data-tab-class="tab3">Documentation</a></li>
+                    <li><a href="#" data-tab-class="tab4">Modules</a></li>
+                    <li><a href="#" data-tab-class="tab6">Seminars</a></li>
+                </ul>
+            </div>
+            
+
+<div class="tab-content">
+
+<div class="tab1">
+  <H2>Description</H2>
+  <IMG src="img/splash.png">
+  <P><B>ADePT</B> is a software platform for automated economic analysis, developed to automate and standardize
+  the production of analytical reports. ADePT uses micro-level data from various types of surveys, such as
+  <em>Household Budget Surveys</em>, <em>Demographic and Health Surveys</em> and <em>Labor Force Surveys</em>
+  to produce rich sets of tables and graphs for a particular area of economic research, dramatically reducing
+  the time required for the production of analytical reports.</P>
+  
+  <H2>Installation</H2>
+
+  <P>Before you install <B>ADePT</B>, please, read the following
+  <A href="documentation/install_adept.pdf" target="_blank">installation instructions</A>.</P>
+
+  <P>Then download <A href="http://www.adeptanalytics.org/download/adept4cs/adept_install.exe" target="_blank">
+  ADePT installation file</A>.</P>
+  
+  <H2>Example data</H2>
+  <P>Example data contains a number of data files and ADePT projects
+  which can be used to explore the functionality of the software.
+  They can be downloaded as a <A href="data/adept_example_data.zip">single archive</A>.<P>
+  
+  <H2>Authors</H2>
+  <P>ADePT core team of developers consists of:</P>
+  <UL>
+    <TABLE>
+	<TR>
+	<TD><IMG src="img/people/lokshin.jpg"><TD>
+      <LI><B>Michael Lokshin</B> is a Lead Economist with the Office of the Chief Economist for Europe and Central Asia, having joined the team in June 2019. Previously, he was a Manager and Lead Economist in the Development Data Group (Survey Unit).
+
+Michael has been involved in the Bank's efforts to develop global public goods for applied economic analysis and data collection. He led a team of researchers, survey experts and software engineers in the development of the Cloud for Development platform, Survey Solutions CAPI/CAWI system for data collection, and the ADePT project (Software Platform for Automated Economic Analysis). He was also behind the creation of the Economic Research Computer Center in the World Bank.
+
+Michael's research focuses on the areas of poverty and inequality measurement, labor economics, and applied econometrics. He has co-authored eight books and more than 50 publications in leading economic journals. Michael holds a Masters in Physics from Moscow Institute of Physics and Technology and a Ph.D. in Economics from University of North Carolina at Chapel Hill.</LI>
+
+	<TR>
+	<TD><IMG src="img/people/radyakin.jpg"><TD>
+
+      <LI><B>Sergiy Radyakin</B> is a senior economist in the World Bank's Development Data Group. His research interests include new technology, automation and reproducible research. He is creating computational tools for applied economic analyses based on survey data, primarily in the field of poverty and inequality analysis, statistical modeling and simulation, data management and visualization. He is an active developer of the ADePT software, a co-author of books on its use, and a facilitator of training sessions. Sergiy is supporting development of the Survey Solutions software for survey management and data collection and its deployment in the Bank's projects and in collaboration with National Statistical Offices (NSOs) worldwide.</LI>
+	<TR>
+	<TD><IMG src="img/people/sajaia.jpg"><TD>
+
+      <LI><B>Zurab Sajaia</B> is a Senior Computational Economist in the World Bank's Development Data Group. His areas of expertise are in poverty and inequality measurement, applied econometrics, and social protection. More recently he has been focusing on developing software tools for Automated Economic Analysis (ADePT platform), as well as systems for electronic data collection and management (SurveySolutions).</LI>
+</TABLE>
+  </UL>
+  <div data-role="collapsible-set">
+           <div data-role="collapsible" data-collapsed="true">
+            <H3>Extended list of authors and contributors</H3>
+            Poverty:
+            <UL><LI>Martin Ravallion/ DECRG</UL>
+
+            Labor:
+            <UL><LI>Pierella Paci/ PREMPR
+            <LI>Catalina Gutierrez
+            <LI>Paul Cichello/ PREMPR</UL>
+
+            Gender:
+            <UL><LI>Pierella Paci/ PRMVP
+            <LI>Josefina Posadas/ PRMGE</UL>
+
+            Social Protection:
+            <UL><LI>Emil Tesliuc/ HDNSP
+            <LI>Phillippe Leite/ HDNSP</UL>
+
+            Education:
+            <UL><LI>Emilio Porta/ HDNED
+            <LI>Harry Patrinos/ HDNED</UL>
+            
+            Inequality:
+            <UL><LI>Francisco Ferreira/ DECRG</UL>
+            
+            Health:
+            <UL><LI>Adam Wagstaff/ DECHD
+            <LI>Marcel Bilger</UL>
+            
+            Microsimulation:
+            <UL><LI>Carolina Sanchez-Paramo/PRMPR
+            <LI>Ambar Narayan/PRMPR
+            <LI>Sergio Olivieri/PRMPR</UL>
+           </div>
+           </div>
+           
+  <H2>Contact</H2>
+  <P>Send inquiries by email to <A href="mailto:adept@worldbank.org">adept@worldbank.org</A></P>
+  
+  </div>
+
+<div class="tab3 ui-screen-hidden">
+
+<H2>Documentation</H2>
+
+  <H3>Quick reference</H3>
+  <P> <A href="documentation/adept_qr.pdf" target="_blank">
+    <IMG src="img/icon-pdf.png">
+    Quick reference card
+  </A>.</P>
+
+  <H3>Video tutorials</H3>
+  
+  <P>Please visit and subscribe to <A href="https://www.youtube.com/channel/UCkZEO4f59Wm9Tn1XO41FYWA">our YouTube channel</A></P>
+  <TABLE bgcolor="lavender">
+  <TR><TH>Tutorial
+  <TH width=130>English
+  <TH width=130>Indonesian
+  <TH width=130>French
+  <TH width=130>Spanish
+  <TH width=130>Russian
+  <TR height=12>
+
+  <TR><TD align="right">About ADePT
+  <TD align="center"><A href="https://www.youtube.com/watch?v=HIZ5bJotex0"><img src="img/icon-ytb.png" height="20"></A> 4:05
+  
+  <TR><TD align="right">Installing ADePT
+  <TD align="center"><A href="https://www.youtube.com/watch?v=RJwGhFjTBlo"><img src="img/icon-ytb.png" height="20"></A> 1:09
+  <TD align="center"><A href="https://www.youtube.com/watch?v=yFszXW9N3n4"><img src="img/icon-ytb.png" height="20"></A> 1:27
+  <TD align="center"><A href="https://www.youtube.com/watch?v=Jw066bWN4Qc"><img src="img/icon-ytb.png" height="20"></A> 1:20
+  <TD align="center"><A href="https://www.youtube.com/watch?v=fLufIa-P6TM"><img src="img/icon-ytb.png" height="20"></A> 1:11
+  <TD align="center"><A href="https://www.youtube.com/watch?v=IitNR52JaTw"><img src="img/icon-ytb.png" height="20"></A> 1:17
+
+  <TR><TD align="right">Getting Started
+  <TD align="center"><A href="https://www.youtube.com/watch?v=EPfwxKh8rsQ"><img src="img/icon-ytb.png" height="20"></A> 1:41
+  <TD align="center"><A href="https://www.youtube.com/watch?v=1NAc5JZb0II"><img src="img/icon-ytb.png" height="20"></A> 2:01
+  <TD align="center"><A href="https://www.youtube.com/watch?v=j5-V2Jmx8O4"><img src="img/icon-ytb.png" height="20"></A> 1:52
+  <TD align="center"><A href="https://www.youtube.com/watch?v=pPuqwVOs4So"><img src="img/icon-ytb.png" height="20"></A> 1:48
+  <TD align="center"><A href="https://www.youtube.com/watch?v=0IWISjbKYy0"><img src="img/icon-ytb.png" height="20"></A> 1:48
+
+  <TR><TD align="right">Output Explained
+  <TD align="center"><A href="https://www.youtube.com/watch?v=451pG1B6PEU"><img src="img/icon-ytb.png" height="20"></A> 1:22
+  <TD align="center"><A href="https://www.youtube.com/watch?v=k6E4yAVchog"><img src="img/icon-ytb.png" height="20"></A> 1:51
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=Td-YOrHjeP8"><img src="img/icon-ytb.png" height="20"></A> 1:35
+
+  <TR><TD align="right">Loading Data
+  <TD align="center"><A href="https://www.youtube.com/watch?v=bRBlUNKYJcw"><img src="img/icon-ytb.png" height="20"></A> 2:18
+  <TD align="center"><A href="https://www.youtube.com/watch?v=_skM05HI1QU"><img src="img/icon-ytb.png" height="20"></A> 2:50
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=wmH9-wCPzdE"><img src="img/icon-ytb.png" height="20"></A> 2:39
+
+  <TR><TD align="right">Specifying Variables
+  <TD align="center"><A href="https://www.youtube.com/watch?v=QVL05z0H6oA"><img src="img/icon-ytb.png" height="20"></A> 2:17
+  <TD align="center"><A href="https://www.youtube.com/watch?v=HK-A5qTUyUA"><img src="img/icon-ytb.png" height="20"></A> 2:46
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=nn55kJvHeoY"><img src="img/icon-ytb.png" height="20"></A> 2:38
+
+  <TR><TD align="right">Selecting Tables and Graphs
+  <TD align="center"><A href="https://www.youtube.com/watch?v=lPNI9I7IJJE"><img src="img/icon-ytb.png" height="20"></A> 1:58
+  <TD align="center"><A href="https://www.youtube.com/watch?v=6REJgJg0ZvI"><img src="img/icon-ytb.png" height="20"></A> 2:31
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=oinJA85Opzc"><img src="img/icon-ytb.png" height="20"></A> 2:15
+
+  <TR><TD align="right">Project Menu
+  <TD align="center"><A href="https://www.youtube.com/watch?v=S8Z61w6SJP4"><img src="img/icon-ytb.png" height="20"></A> 2:12
+  <TD align="center"><A href="https://www.youtube.com/watch?v=VIU0f5p4EcE"><img src="img/icon-ytb.png" height="20"></A> 2:07
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=grzgA3Iw2ZQ"><img src="img/icon-ytb.png" height="20"></A> 2:02
+
+  <TR><TD align="right">ADePT Health Financing
+  <TD align="center"><A href="https://www.youtube.com/watch?v=-JME_dEtgUw"><img src="img/icon-ytb.png" height="20"></A> 1:53
+  <TD align="center">
+  <TD align="center">
+  <TD align="center"><A href="https://www.youtube.com/watch?v=q5xaCenZmhA"><img src="img/icon-ytb.png" height="20"></A> 2:13
+
+  </TABLE>
+
+<H3>Books</H3>
+
+<P><A href="https://openknowledge.worldbank.org/handle/10986/23097/discover?filtertype=supportedlanguage&filter_relational_operator=equals&filter=en">
+<em>Streamlined Analysis with ADePT Software</em></A> is a series of books dedicated to 
+documenting the best practices of economic analysis of various topics with ADePT software. 
+The books cover the problematics, theoretical foundations and methodology, program settings, 
+and results interpretation. The examples included in the books help illustrate common 
+practical situations and aide in understanding the output and formulating policy 
+recommendations.</P>
+
+<P>You can read any of the books below online for free. (Click on the book cover to read it on-line).</P>
+<P>You can download any of the books below in full-text for free. (Click on the corresponding link to download in PDF).</P>
+
+
+    <div data-role="collapsible-set">
+         <div data-role="collapsible" data-collapsed="true">
+              	<H3>Measuring the Effectiveness of Social Protection</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9781464810909">
+                            <IMG src="img/books/socialprotection.jpg" width=113></A>
+                          <TD width=5%>
+                          <TD><P><em>Measuring the Effectiveness of Social Protection: Concepts and Applications</em>
+                          provides the conceptual and analytical framework for assessing social protection (SP) 
+                          programs, as well as provides a practical guide for users seeking to conduct analysis, 
+                          particularly using the World Bank's Software Platform for Automated Economic Analysis 
+                          (ADePT). The book provides a comprehensive unique resource to tie together social policy 
+                          theory, concepts and practical analytical techniques.</P>
+                          <P>The book content is targeted at policymakers and practitioners worldwide seeking to 
+                          improve the outcomes of their social protection policies. It suggests advanced methods 
+                          and a new rapid analysis instrumental for technical experts working on quantitative SP 
+                          analysis for their ministry, national statistics offices, think tanks, universities, or
+                          development organizations.</P>
+                          <P>The book aims to equip users with different statistical background and SP knowledge 
+                          to independently conduct SP analysis and prepare a standardized set of tables and graphs 
+                          to conduct different types of SP performance analysis, ranging from benchmarking SP 
+                          performance within and across countries, simulating the performance of alternative reform 
+                          options, and assessing the viability of proposed programs.</P>
+
+                          <TABLE>
+                            <TR><TD>
+                            <A href="https://openknowledge.worldbank.org/bitstream/handle/10986/29802/9781464810909.pdf?sequence=2&isAllowed=y">
+                            <IMG src="img/icon-pdf.png"></A>
+                            <TD>Download full text in PDF from OpenKnowledge.
+                          </TABLE>
+                          <P>June 2018. (ISBN: 978-1-4648-1090-9)</P>
+                      </TABLE>
+    	</div>
+
+        <div data-role="collapsible" data-collapsed="true">
+              	<H3>Measuring Gender Equality</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9781464807756">
+                            <IMG src="img/books/gender.jpg" width=113></A>
+                          <TD width=5%>
+                          <TD><P>Gender equality is a core development objective in its own right and also smart 
+                          development policy and business practice. No society can develop sustainably without 
+                          giving men and women equal power to shape their own lives and contribute to their 
+                          families, communities, and countries. And yet, critical gender gaps continue to exist in 
+                          all countries and across multiple dimensions.</P>
+                          <P>The gender module of the World Bank's ADePT software platform produces a comprehensive 
+                          set of tables and graphs using household surveys to help diagnose and analyze the 
+                          prevailing gender inequalities at the country level and over time. This book provides a 
+                          step-by-step guide to the use of the ADePT software and an introduction to its basic 
+                          economic concepts and econometric methods.</P>
+                          <P>The module is organized around the framework proposed by the <em>World Development Report
+                          2012: Gender Equality and Development</em>. It covers gender differences in outcomes in 
+                          three primary dimensions of gender equality: human capital (or endowments), economic 
+                          opportunities, and voice and agency. Particular focus is given to the analysis and 
+                          decomposition techniques that allow for further exploring of gender gaps in economic 
+                          opportunities.</P>
+
+                          <TABLE>
+                            <TR><TD>
+                            <A href="https://openknowledge.worldbank.org/bitstream/handle/10986/26308/9781464807756.pdf?sequence=2&isAllowed=y">
+                            <IMG src="img/icon-pdf.png"></A>
+                            <TD>Download full text in PDF from OpenKnowledge.
+                          </TABLE>
+
+                          <P>April 2017. (ISBN: 978-1-4648-0775-6)</P>
+                      </TABLE>
+    	</div>
+
+
+        <div data-role="collapsible" data-collapsed="true">
+              	<H3>Key Labor Market Indicators: Analysis with Household Survey Data</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9781464807848">
+                            <IMG src="img/books/labor.png" width=113></A>
+                          <TD width=5%>
+                          <TD><P><em>Key Labor Market Indicators: Analysis with Household Survey Data</em> is an 
+                          introduction to labor market indicator analysis and a guide for analyzing household 
+                          survey data using the ADePT ILO (International Labour Organization) Labor Market 
+                          Indicators Module. The analytical framework and approach taken up in this book are based 
+                          on the ILO's Key Indicators of the Labour Market (KILM). KILM indicators provide a strong 
+                          basis on which to address key questions related to productive employment and decent work. 
+                          The ADePT ILO Labor Market Indicators Module is a powerful tool for producing and 
+                          analyzing KILM indicators using household survey data. The software allows researchers 
+                          and practitioners to automate data production, to minimize data production errors, and 
+                          to quickly produce a wide range of labor market data from labor force surveys or other 
+                          household surveys that contain labor market information.</P>
+                          
+                          <TABLE>
+                            <TR><TD>
+                            <A href="https://www.ilo.org/wcmsp5/groups/public/---dgreports/---dcomm/---publ/documents/publication/wcms_519717.pdf">
+                            <IMG src="img/icon-pdf.png"></A>
+                            <TD>Download full text in PDF from ILO.
+                          </TABLE>
+
+                          <P>October 2016. (ISBN: 978-1-4648-0784-8)</P>
+                      </TABLE>
+    	</div>
+
+        <div data-role="collapsible" data-collapsed="true">
+              	<H3>Simulating Distributional Impacts of Macro-dynamics : Theory and Practical Applications</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9781464803840">
+                            <IMG src="img/books/simulation.jpg" width=113></A>
+                          <TD width=5%>
+                          <TD><P><em>Simulating Distributional Impacts of Macro-dynamics: Theory and Practical 
+                          Applications</em> is a comprehensive guide for analyzing and understanding the effects of 
+                          macroeconomic shocks on income and consumption distribution, as well as using the ADePT 
+                          Simulation Module. Since real-time micro data is rarely available, the Simulation Module
+                          (part of the ADePT economic analysis software) takes advantage of historical household
+                          surveys to estimate how current or proposed macro changes might impact household and 
+                          individuals welfare. Using examples from different economic and social contexts, the book 
+                          explains macro-micro linkages in an easy and intuitive way. After developing a sound 
+                          theoretical foundation, readers are then shown how to explore their own scenarios using the 
+                          Simulation Module. Step-by-step instructions illustrate data entry and show how to make 
+                          adjustments using the Module's options. Exercises present how different sections of the 
+                          simulation process operate independently. This book will be a valuable reference for 
+                          analysts needing to evaluate the potential impact of structural reforms and to generate 
+                          projections for hypothetical scenarios. Results created by the Simulation Module will be 
+                          helpful in informing governmental policymaking.</P>
+                          <P><A href="https://openknowledge.worldbank.org/bitstream/handle/10986/20391/9781464803840.pdf?sequence=5&isAllowed=y">Download full text</A> in PDF from the Open Knowledge Repository.</P>
+                          <P>September 2014. (ISBN: 978-1-4648-0384-0)</P>
+                      </TABLE>
+    	</div>
+    	
+    	<div data-role="collapsible" data-collapsed="true">
+              	<H3>Analyzing Food Security Using Household Survey Data</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9781464801334">
+                            <IMG src="img/books/foodsecurity.jpg" width=113></A>
+                          <TD width=5%>
+                          <TD><P>This book describes Food Security Module of ADePT (stand-alone software available 
+                          for free downloading). The software was developed to produce a suite of indicators necessary 
+                          to describe food insecurity in all its dimensions, based on food consumption data collected 
+                          in household surveys. These indicators, derived at the national and subnational levels, 
+                          include the consumption of calories and macronutrients, the availability of micronutrients 
+                          and amino acids, the distribution of calories and the proportion of people undernourished. 
+                          The book embodies decades of experience in analyzing food security and focuses on the theory, 
+                          methodology, and analysis of these indicators.</P>
+                          <P><A href="https://openknowledge.worldbank.org/bitstream/handle/10986/18091/9781464801334.pdf?sequence=1&isAllowed=y">Download full text</A> in PDF from the Open Knowledge Repository.</P>
+                          <P>April 2014. (ISBN: 978-1-4648-0133-4)</P>
+                      </TABLE>
+    	</div>
+    	
+    	
+    	
+    	<div data-role="collapsible" data-collapsed="true">
+
+              	<H3>ADePT User Guide</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/adept_user_guide">
+                          <IMG src="img/books/userguide.png"></A>
+                          <TD width=5%>
+                          <TD><P>ADePT software enables users to analyze microdata—from sources such as
+                          household surveys—and generate print-ready, standardized tables and charts.
+                          It can also be used to simulate the impact of economic shocks, farm subsidies,
+                          cash transfers and other policy instruments on poverty, inequality and
+                          labor. The software automates the analysis, helps minimize human errors and
+                          encourages development of new economic analysis methods.
+                          ADePT supports datasets in Stata®, SPSS® and tab-delimited text formats.
+                          ADePT incorporates Numerics by Stata® (installed with ADePT) as its computational
+                          engine.</P>
+
+                          <P><A href="documentation/adept_ug.pdf" target="_blank">Download full-text</A> in PDF from this site.</P>
+                          <P>Mar 2013.</P>
+                      </TABLE>
+    	</div>
+    	
+    	
+
+
+
+    	<div data-role="collapsible" data-collapsed="true">
+
+              	<H3>A Unified Approach to Measuring Poverty and Inequality</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9780821384619">
+                          <IMG src="img/books/poverty.png"></A>
+                          <TD width=5%>
+                          <TD><P><em>A Unified Approach to Measuring Poverty and Inequality: Theory and Practice</em> is an
+                          introduction to the theory and practice of measuring poverty and inequality, as well as a user's
+                          guide for analyzing income or consumption distribution for any standard household dataset using
+                          the World Bank's ADePT software. The approach taken here considers income standards as building
+                          blocks for basic measurement, then uses them to construct inequality and poverty measures. This
+                          unified approach provides advantages in interpreting and contrasting the measures and in
+                          understanding the way measures vary over time and space.</P>
+                          <P>Click on book cover to read it on-line.</P>
+                          <P>Or proceed to full-text download in PDF from the e-Library.</P>
+                          <P>Mar 2013. (ISBN: 978-0-8213-8461-9)</P>
+                      </TABLE>
+    	</div>
+    	<div data-role="collapsible" data-collapsed="true">
+              	<H3>Health Equity and Financial Protection</H3>
+              	<TABLE><TR>
+                          <TD><IMG src="img/books/health.png">
+                          <TD width=5%>
+                          <TD><P>ADePT Health is a free-standing computer program that allows users to produce quickly - 
+                          and with the minimal risk of errors - most tables that have become standard in applied health and 
+                          equity analysis. ADePT produces summary statistics and charts that allow inequalities to be 
+                          compared across countries and over time. This manual explains the methods ADePT uses, how to
+                          prepare data for it, how to navigate the ADePT interface to generate the desired tables and charts,
+                          and how to interpret them.</P>
+                          <P>Click on book cover to read it on-line.</P>
+                          <P>Or proceed to full-text download in PDF from the World Bank Documents & Reports site.</P>
+                          <P>Alternatively full-text download in PDF is available from the Open Knowledge Repository</P>
+                          <P>May 2011. (ISBN: 978-0-8213-8459-6)</P>
+                      </TABLE>
+    	</div>
+    	<div data-role="collapsible" data-collapsed="true">
+              	<H3>Assessing Sector Performance and Inequality in Education</H3>
+              	<TABLE><TR>
+                          <TD><A href="https://issuu.com/world.bank.publications/docs/9780821384589">
+                            <IMG src="img/books/education.png"></A>
+                          <TD width=5%>
+                          <TD><P>The objective of the manual is to assist education analysts and policy practitioners in 
+                          their assesmment of education sector performance, internal efficiency, finance, and equity. It is 
+                          a technical and analytical resource that takes full advantage of ADePT Education, a software tool 
+                          that allows for the calculation of education indicators from micro-level data. It provides
+                          technical definitions of more than forty indicators and step-by-step instructions for the 
+                          preparation and analysis of indicators of internal efficiency and inequality. It also assists users
+                          in the interpretation of results, the prioritization of policy issues, and in the generation of 
+                          tables and graphs that can be used to bolster their own analysis.</P>
+                          <P>Click on book cover to read it on-line.</P>
+                          <P>Or proceed to full-text download in PDF from the open knowledge repository.</P>
+                          <P>July 2010. (ISBN: 978-0-8213-8458-9)</P>
+                      </TABLE>
+    	</div>
+
+     </div>
+</div>
+
+
+<div class="tab4 ui-screen-hidden">
+
+    <H2>Modules</H2>
+
+    <P>ADePT has a modular structure with each module devoted to analysis of a
+    particular topic. Below is the descriptive information for the released
+    modules.</P>
+
+     <div data-role="collapsible-set">
+         <div data-role="collapsible" data-collapsed="true">
+              	<H3>Poverty and Inequality</H3>
+              	Poverty and Inequality module.
+    	 </div>
+    	 
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Social Protection</H3>
+              	<P>ADePT SP examines how the beneficiaries and/or benefits of
+                social protection programs are distributed across quintiles,
+                deciles or other population groups. The software performs
+                sensitivity analysis with different consumption counterfactuals;
+                generates estimates with correct standard errors; and produces
+                statistics that allow comparisons between survey and administrative
+                data. It can also be used to simulate the distributional
+                impact of new/restructured programs.</P>
+
+                <H4>Examples</H4>
+                <UL>
+                <LI>Using example dataset with ADePT Social Protection Module</LI>
+                <LI>adept_blg.dta Input Data (Stata 9.2 dataset format)</LI>
+                <LI>project_sp.ini</LI>
+                </UL>
+                <H4>Output reports</H4>
+                <UL>
+                <LI>Output of ADePT Social Protection module, pdf</LI>
+                <LI>Output of ADePT Social Protection module, xls</LI>
+                </UL>
+    	 </div>
+
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Labor</H3>
+              	<P>ADePT Labor is an integrated set of programs that produces tables 
+                and charts for the analysis of labor markets mainly in low- and 
+                middle-income countries.</P>
+                
+                <P>The program allows to carry out standard labor analysis and the 
+                role of jobs and employment in transmitting the benefits of growth 
+                to the poor. ADePT Labor covers: (a) Labor market performance and 
+                structure; (b) Inequalities in the labor market; (c) poverty and 
+                labor markets (d) disadvantaged groups in the labor market. Each 
+                of these sub-themes is a separate module in ADePT labor, so the
+                analyst can choose to produce all the tables in ADePT labor or just 
+                the subset corresponding to each module. Specific definitions of 
+                the indicators have been refined based on presentations, training, 
+                and pilot studies conducted in several countries including Bangladesh, 
+                Brazil, Egypt, Ghana, Jordan, Madagascar, Morocco, and Senegal.</P>
+
+                <H4>Documentation</H4>
+                <UL><LI>ADEPT Labor Hand-Out</LI></UL>
+                <H4>Examples</H4>
+                Input Data (Stata 9.2 dataset format)
+
+                <UL><LI>Using example dataset with ADePT Labor Module</LI>
+                <LI>Dataset</LI>
+                <LI>Project file</LI></UL>
+                
+                <H4>Output reports</H4>
+                <UL><LI>Output file for ADePT Labor Module, pdf</LI>
+                <LI>Output file for ADePT Labor Module, xls</LI>
+                </UL>
+
+    	 </div>
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Gender</H3>
+              	<P>ADePT Gender produces tables and graphs using household 
+                surveys to help diagnose and analyze gender inequalities. 
+                ADePT Gender is organized around the framework proposed by 
+                the World Development Report 2012 on Gender Equality and 
+                Development. </P>
+                
+                <P>The Module covers gender differences in
+                outcomes in the three primary dimensions of gender equality:
+                human capital (or endowments), economic opportunities and 
+                voice and agency. Outcomes are disaggregated by gender and 
+                by population groups such as sex of household head, age 
+                groups, place of residence, and income. This diagnostic not 
+                only helps to profile a country in terms of gender equality, 
+                but also facilitates a better understanding of the gender 
+                dimensions of poverty. This should help make mainstreaming 
+                gender analysis standard practice in poverty and labor 
+                diagnosis.</P>
+                
+                <H4>Examples</H4>
+                Input Data (Stata 9.2 dataset format)
+                <UL>
+                <LI>Using example dataset with ADePT Gender Module</LI>
+                <LI>adept_ex.dta</LI>
+                <LI>gender.adept</LI>
+                </UL>
+
+                <H4>Output reports</H4>
+                <UL><LI>Output file for ADePT Gender Module, pdf</LI>
+                <LI>Output file for ADePT Gender Module, xls</LI></UL>
+
+    	 </div>
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Health</H3>
+              	<P>ADePT Health allows users to produce quickly and with a
+                minimal risk of errors most tables that have become
+                standard in applied health equity analysis. ADePT's tables
+                are in a standardized format and are based on a set of
+                methods that are widely accepted in the literature. However,
+                ADePT Health also allows considerable flexibility in terms
+                of specific assumptions. Through its standardized tables,
+                ADePT Health facilitates comparisons of health equity over
+                time within and between countries.</P>
+
+                <P>ADePT Health uses the methods outlined in 
+                <A href="http://documents.worldbank.org/curated/en/633931468139502235/Analyzing-health-equity-using-household-survey-data-a-guide-to-techniques-and-their-implementation">
+                Analyzing Health
+                Equity Using Household Survey Data: A Guide to Techniques
+                and Their Implementation</A> (Washington DC, World Bank, 2008)
+                by Owen O'Donnell, Eddy van Doorslaer, Adam Wagstaff and
+                Magnus Lindelow. Copies of the book can be ordered online
+                or downloaded for free from
+                <A href="http://www.worldbank.org/analyzinghealthequity">
+                http://www.worldbank.org/analyzinghealthequity</A>, where
+                Powerpoint self-teaching tutorials on health equity methods
+                are ALSO available for download, along with customizable
+                Stata do files for analysts who are comfortable with Stata
+                programming. ADePT Health will appeal to the health equity
+                analyst who wants to focus on data-preparation, interpreting
+                results, and thinking about policy implications, rather than
+                on Stata programming. ADePT Health dramatically reduces the
+                time taken to prepare standard health equity tables, and
+                makes more widely accessible all the methods covered in
+                Analyzing Health Equity.</P>
+
+                <P>ADePT's Health Financing module covers:</P>
+                <UL>
+                <LI>Progressivity of health care finance - chapter 16 of Analyzing Health Equity</LI>
+                <LI>Redistributivity of health care finance - chapter 17</LI>
+                <LI>Catastrophic out-of-pocket payments - chapter 18</LI>
+                <LI>Poverty and out-of-pocket payments - chapter 19</LI>
+                </UL>
+
+                <P>ADePT's Health Outcomes module covers:</P>
+                <UL>
+                <LI>Inequalities in health - chapters 5, 7-9 and 13 of Analyzing Health Equity</LI>
+                <LI>Inequity in health utilization - chapter 15</LI>
+                <LI>Benefit incidence analysis - chapter 14</LI>
+                </UL>
+
+    	 </div>
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Education</H3>
+              	<P>ADePT Education was developed as a joint effort of 
+                EdStats and DECRG. The purpose of this new tool is to 
+                pull common educational indicators out of microlevel 
+                survey data and present it in a print-ready form, 
+                facilitating further analysis by researchers. 
+                Using ADePT, a researcher can access over 15 predefined 
+                tables that present information on over 30 educational 
+                indicators. These indicators are disaggregated by such 
+                categories as level of education, gender, area of 
+                residence (urban/rural), household wealth, and the 
+                gender and educational level of household head. Tables 
+                are also grouped into categories: school participation, 
+                progression, attainment, and education expenditures. 
+                ADePT Education also provides 30 graphs on educational 
+                attainment and enrollment. 
+                
+                <A href="http://datatopics.worldbank.org/education/wDHS/HLinks.aspx">ADePT Education Indicator Definitions.</A>
+
+                <H4>Examples</H4>
+                <UL>
+                <LI>Using example dataset with ADePT Education Module</LI>
+                <LI>adept_blg.dta Input Data (Stata 9.2 dataset format)</LI>
+                <LI>adept_education.ini</LI>
+                </UL>
+                <H4>Output reports</H4>
+                <UL>
+                <LI>Output file for ADePT Education Module, pdf</LI>
+                <LI>Output file for ADePT Education Module, xls</LI>
+                </UL>
+    	 </div>
+
+    	 <div data-role="collapsible" data-collapsed="true">
+              	<H3>Food Security</H3>
+              	<P>Since the end of the Second World War, the international community
+                has been focusing on reducing the number and the proportion of
+                people who suffer from hunger. Over time it became clear that no
+                single indicator would provide a comprehensive picture of the food
+                security situation. Rather, a suite of indicators is necessary to
+                describe food insecurity in all its dimensions. The demand for
+                evidence based policies, which brings together providers such as
+                statistical offices and users of food security indicators including
+                policy makers and researchers, has also been increasing. The ADePT-Food 
+                Security Module (ADePT-FSM) was developed to produce food security 
+                indicators from food consumption data collected in household surveys (HS). 
+                These indicators include the consumption of calories and macronutrients, 
+                the availability of micronutrients and amino acids, the distribution of 
+                calories and the proportion of people undernourished.</P>
+                
+                <P>ADePT-FSM requires four datasets. Three of them contain data extracted 
+                from the original HS files, including household and household members'
+                characteristics, and quantities and monetary values of food commodities
+                consumed by households. The fourth datasets contains calorie and nutrients
+                conversion factors extracted from national/regional Food Composition Tables.</P>
+
+                <P>The food security indicators are derived at the national and subnational
+                levels such as by region, area of residence or household heads' 
+                characteristics. ADePT-FSM also produces statistics by group of food items 
+                and at the food item level. Some National Food Insecurity Reports are 
+                available at <A href="http://www.fao.org/economic/ess/ess-fs/fscapdev/essfscd/en/">
+                http://www.fao.org/economic/ess/ess-fs/fscapdev/essfscd/en/
+                </A>
+
+                <H4>Examples</H4>
+                <UL><LI><A href="modular/fsm/using_adept_with_example_datasets_fsm.pdf"  target="_blank">
+                Using example dataset with ADePT Food Security Module</A></LI></UL>
+                <H4>Input Data</H4>
+                <UL>
+                <LI>All microdata files (Stata format) and ADePT project files in a compressed archive.</LI>
+                </UL>
+
+                <H4>Output reports (including micronutrients analysis)</H4>
+                <UL>
+                <LI>Output of ADePT Food Security module, pdf</LI>
+                <LI>Output of ADePT Food Security module, xls</LI>
+                </UL>
+
+                <H4>Output reports (excluding micronutrients analysis)</H4>
+                <UL>
+                <LI>Output of ADePT Food Security module, pdf</LI>
+                <LI>Output of ADePT Food Security module, xls</LI>
+                </UL>
+    	 </div>
+
+    	 <div data-role="collapsible" data-collapsed="true">
+    	 
+
+
+              	<H3>Agriculture (Crops and Livestock)</H3>
+
+                <P>ADePT Agriculture was developed to facilitate the computation
+                and production of agricultural statistics and indicators from
+                household and farm survey data. It generates print-ready tables
+                that describe the characteristics of the agricultural sector,
+                and the factors that affect agricultural productivity. ADePT
+                Agriculture is designed for use with household level data, but
+                can be equally used with data from surveys that sample farms
+                rather than households. ADePT Agriculture consists of two
+                modules focusing respectively on crops and livestock.</P>
+
+                <P>The tool is intended for use by policy analysts, agricultural
+                ministries staff, NGOs and international organizations and
+                researchers interested in getting a better understanding of the
+                farm household economy. By making it simpler and faster to
+                produce analytical reports, ADePT Agriculture frees up
+                resources for the interpretation of results, and facilitates
+                using data to design evidence based policies and investments.
+                By making the analysis easier and faster for a wider range of
+                users, ADePT Agriculture can also increase the demand for and
+                utilization of new and existing household survey data.</P>
+
+                <P>ADePT Agriculture was developed in cooperation with the 
+                <A href="http://www.fao.org/economic/ess/ess-home/en/">Food and
+                Agriculture Organization</A> of the United Nations (FAO).</P>
+
+                <H3>Crops</H3>
+                <P>The ADePT Agriculture - Crops module employs user provided data
+                to produce information of relevance to key domains of agricultural
+                policy analysis. In particular the module generate tables on
+                farm structures, land use, tenancy arrangement status, by regions
+                and over expenditure and land quintiles. It also generates tables
+                on land quality features, the use of agricultural inputs and
+                services, crop production and income, and constraints to crop
+                production.</P>
+
+                <H4>Crops module documentation</H4>
+                <UL>
+                    <LI><A href="modular/agriculture/crops/ag_crops_user_guide.pdf" target="_blank">
+                        ADePT Agriculture (Crops) User Guide</A></LI>
+                    <LI><A href="modular/agriculture/crops/ag_crops_qs.pdf" target="_blank">
+                        Crops Quick Start Guide</A></LI>
+                </UL>
+                <H4>Examples</H4>
+                <UL>
+                    <LI><A href="modular/agriculture/crops/readme_ag_data.pdf" target="_blank">
+                        Using example dataset with ADePT Crops Module</A></LI>
+                </UL>
+
+                <H4><A href="modular/agriculture/crops/adept_ag_data.zip" target="_blank">
+                        Input data</A></H4>
+                <UL>
+                  <LI><A href="modular/agriculture/crops/crops.dta" target="_blank">Crops</A></LI>
+                  <LI><A href="modular/agriculture/crops/household.dta" target="_blank">Household</A></LI>
+                  <LI><A href="modular/agriculture/crops/plots.dta" target="_blank">Plots</A></LI>
+                  <LI><A href="modular/agriculture/crops/plot_crops.dta" target="_blank">Plots-crops</A></LI>
+                  <LI><A href="modular/agriculture/crops/ag_crops_example.adept" target="_blank">ADePT agriculture (crops) example project</A></LI>
+                </UL>
+
+                <H4>Output reports</H4>
+                <UL>
+                  <LI>Crops Example Output</LI>
+                </UL>
+
+                <H3>Livestock</H3>
+                <P>The ADePT Agriculture - Livestock module facilitates the
+                computation and analysis of livestock statistics and indicators
+                from household survey data. Livestock contribute in multiple ways
+                to household's livelihoods, including through the provision of cash
+                income, food, manure, draft power and hauling services, savings and
+                insurance and social status. The Livestock module automates and
+                standardizes the analysis of survey data and the production of
+                analytical tables on the livestock sector. ADePT Agriculture -
+                Livestock generates a set of tables that describe the key
+                characteristics of the livestock sector and its relationship to
+                household livelihoods.</P>
+
+                <H4>Livestock module documentation</H4>
+                <UL>
+                    <LI>Livestock User's Guide</LI>
+                    <LI>Livestock Quick Start Guide</LI>
+                </UL>
+
+                <H4>Examples</H4>
+                <UL>
+                    <LI>Using example dataset with ADePT Livestock Module</LI>
+                </UL>
+                
+                <H4>Input data</H4>
+                <UL>
+                    <LI>Products data</LI>
+                    <LI>Household data</LI>
+                    <LI>Animals data</LI>
+                    <LI>Animal coefficients</LI>
+                    <LI>ADePT Agriculture (livestock) example project</LI>
+                </UL>
+                
+                <H4>Output reports</H4>
+                <UL>
+                    <LI>Livestock Example Output</LI>
+                </UL>
+    	 </div>
+     </div>
+
+
+
+</div>
+
+
+         <div class="tab6 ui-screen-hidden">
+
+                  <H2>Seminars</H2>
+
+		  <A href="seminars_map.html" target="_blank">Seminars map</A>
+                
+            
+                  <TABLE width=760>
+                  <TR><TD width=360 valign=top>
+
+
+                  <IMG src="img/seminars/south_africa01.jpg" width="360">
+                  <IMG src="img/seminars/south_africa02.jpg" width="360">
+
+                  <IMG src="img/seminars/jordan01.jpg" width="360">
+                  <IMG src="img/seminars/jordan02.jpg" width="360">
+
+                  <IMG src="img/seminars/vanuatu01.jpg" width="360">
+                  <IMG src="img/seminars/vanuatu02.jpg" width="360">
+
+                  <IMG src="img/seminars/solomon_islands01.jpg" width="360">
+                  <IMG src="img/seminars/solomon_islands02.jpg" width="360">
+
+                  <IMG src="img/seminars/india01.jpg" width="360">
+                  <IMG src="img/seminars/india02.jpg" width="360">
+
+                  <TD width=360 valign=top>
+                      <PRE class="white" id="white">
+Venue:        Honiara, Solomon Islands
+Date:         March 2013
+Title:        Poverty Analysis with ADePT
+Presenters:   S. Radyakin
+Countries:    Solomon Islands
+Participants: National Statistical Office, Central Bank<HR>
+Venue:	      Port Vila, Vanuatu
+Date:	      March 2013
+Title:	      Poverty Analysis with ADePT
+Presenters:   S. Radyakin
+Countries:    Vanuatu
+Participants:<HR>
+Venue:        Cape Verde
+Date:         April 2012
+Title:        ADePT Poverty
+Presenters:   S. Radyakin
+Countries:    Cape Verde
+Participants:<HR>
+Venue:        Bishkek, Kyrgyz Republic
+Date:         December 2011
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, S. Radyakin, T. Sviridova
+Countries:    Kyrgyz Republic
+Participants: Statistics Commitee, 
+              Institute of statistical research, 
+              Ministry of Social Protection, 
+              Ministry of Economics, 
+              Ministry of Education<HR>
+Venue:        Amman, Jordan
+Date:         December 2011
+Title:        ADePT Poverty Workshop
+Presenters:   S. Radyakin, T. Sviridova
+Countries:    Jordan
+Participants: National Aid Fund, 
+              Ministry of Planning and International Cooperation, 
+              Department of Statistics<HR>
+Venue:        Washington, DC, USA
+Date:         November 2011
+Title:        ADePT Education Workshop
+Presenters:   E.Porta, H. Patrinos
+Countries:    Various
+Participants: WB staff<HR>
+Venue:        Washington, DC, USA
+Date:         September 2011
+Title:        Data Analysis Training
+Presenters:   M. Lokshin, S. Radyakin, Z.Sajaia, T. Sviridova
+Countries:    Nepal
+Participants: Central Bureau of Statistics<HR>
+Venue:        Toronto, Canada
+Date:         July 2011
+Title:        Measuring Equity and Financial Protection in Health
+Presenters:   Adam Wagstaff (World Bank), 
+              Caryn Bredenkamp (World Bank), 
+              Eddy van Doorslaer (Erasmus University Rotterdam), 
+              Ellen van de Poel (Erasmus University Rotterdam), 
+              Owen O'Donnell (University of Macedonia and Erasmus University Rotterdam)
+Countries:
+Participants:<HR>
+Venue:        Rabat, Morocco
+Date:         June 2011
+Title:        ADePT Training Course
+Presenters:   S. Radyakin, S. Olivieri
+Countries:    Morocco
+Participants: Center of Demographic Research and Study,
+              Department of Statistics,
+              National Office of Human Development,
+              Department of Prediction and Forecasting,
+              Department of Financial Forecasts<HR>
+Venue:        ITCEQ, Tunis, Tunisia
+Date:         May/June 2011
+Title:
+Presenters:   S. Radyakin, S. Olivieri
+Countries:    Tunisia
+Participants:<HR>
+Venue:        Moscow, Russia
+Date:         May 2011
+Title:        Improving Migration Statistics and Data Sharing
+Presenters:   M. Lokshin
+Countries:    Kirgizstan, Kazakstan, Armenia, Belorussia, 
+              Ukraine, Tajikistan, Moldova, Azerbaijan
+Participants: Statistical Offices, 
+              Ministries and NGO<HR>
+Venue:        Dushanbe, Tajikistan
+Date:         May 2011
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, Z. Sajaia
+Countries:    Tajikistan
+Participants: Ministry of Education; 
+              Institute of Improving Qualification of Civil Servants; 
+              State Committee on Investments and State Property Management; 
+              Economics & Demography Institute of the Academy of Sciences; 
+              Health Policy Analysis Unit of the Ministry of Health, Statistic Agency; 
+              State Agency on Social Protection, Employment and Migration (of MLSP);
+              Strategic Research Center; 
+              Public Fund "Panorama"<HR>
+Venue:        Bangkok, Thailand
+Date:         April 2011
+Title:        ADePT Labor
+Presenters:   M. Lokshin, Z. Sajaia, T. Sviridova
+Countries:    Philippines, Laos, Thailand, Timor-Leste, 
+              Indonesia, Vietnam and Cambodia
+Participants: NSOs, Labor Ministries, National Institutes and Planning Ministries<HR>
+Venue:        Subsecretaría de Desarrollo Social y Humano (SEDESOL),
+              Mexico City, Mexico
+Date:         March 2011
+Title:        Microsimulations with ADePT Crisis and Poverty Analysis
+Presenters:   S. Radyakin, S. Olivieri, S. Freije
+Countries:    Mexico
+Participants: Direccion General de Análisis y Prospectiva, 
+              of the Subsecretaría de Desarrollo Social y Humano (SEDESOL)<HR>
+Venue:        Washington, DC, USA
+Date:         February 2011
+Title:        ADePT Poverty, Social Protection and Health
+Presenters:   M. Lokshin, S. Radyakin, Z. Sajaia
+Countries:    Mongolia
+Participants: National Statistics Office<HR>
+Venue:        Higher School of Economics, Moscow, Russia
+Date:         December 2010
+Title:        ADePT Overview
+Presenters:   M. Lokshin
+Countries:    Russia
+Participants: Faculty, Staff, Graduate students<HR>
+Venue:        University of Pretoria, Pretoria, South Africa
+Date:         October 2010
+Title:        ADePT Poverty
+Presenters:   S. Radyakin
+Countries:    Botswana, Ethiopia, Kenya, Malawi, Rwanda, South Africa, 
+              Tanzania, Uganda, Zambia and Zimbabwe
+Participants: University Researchers<HR>
+Venue:        WB Country office, Beirut, Lebanon
+Date:         August 2010
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, Z. Sajaia
+Countries:    Jordan, Lebanon, Syria
+Participants: National Statistics Office, 
+              Ministry of Social Affairs, 
+              UNDP & other donors<HR>
+Venue:        Palestine Central Bureau of Statistics, Ramallah, Palestine
+Date:         May 2010
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, S. Radyakin
+Countries:    Palestine
+Participants: Department of Statistics of Palestine,
+              Staff from the Ministry of Social Affairs<HR>
+Venue:        WB Country Office, Jakarta, Indonesia
+Date:         March 2010
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, Z. Sajaia
+Countries:    Indonesia
+Participants: Bappenas, National Statistics Office<HR>
+Venue:        WB Country Office, Jakarta, Indonesia
+Date:         November 2009, February 2010
+Title:        ADePT Poverty and Social Protection
+Presenters:   M. Lokshin, Z. Sajaia
+Countries:    Indonesia
+Participants: Bappenas,
+              National Statistics Office,
+              Think tanks and Academics<HR>
+Venue:        University of Cape Town, Cape Town, South Africa
+Date:         May 2009
+Title:        ADePT Poverty
+Presenters:   Z. Sajaia
+Countries:    Botswana, Lesotho, Namibia, Swaziland and Zimbabwe
+Participants: National Statistics Office
+              </PRE>
+
+              </TABLE>
+
+            </div>
+        </div><!-- /content -->
+
+
+
+
+    </body>
 </html>
-
-
-<A href="authors.html">Authors</A>
